@@ -12,7 +12,7 @@ public class UserController {
     @Autowired
     public UserRepository some;
     @PostMapping("create")
-    public User createUser(){
+    public User create(){
         User user = new User("Gosho");
         some.save(user);
         return user;
