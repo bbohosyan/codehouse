@@ -14,14 +14,14 @@ public class UserController {
     @Autowired
     public UserRepository some;
     @PostMapping("create")
-    public User create(){
-        User user = new User("Gosho");
+    public UserDto create(){
+        UserDto user = new UserDto("Gosho");
         some.save(user);
         return user;
     }
 
     @GetMapping("getAll")
-    public List<User> getAll(){
+    public List<UserDto> getAll(){
         return some.findAll();
     }
 
