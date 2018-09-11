@@ -1,5 +1,7 @@
 package com.codehouse.codehouse;
 
+import com.codehouse.codehouse.validators.email.ValidEmail;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;

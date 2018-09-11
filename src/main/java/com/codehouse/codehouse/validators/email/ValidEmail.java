@@ -1,4 +1,6 @@
-package com.codehouse.codehouse;
+package com.codehouse.codehouse.validators.email;
+
+import com.codehouse.codehouse.validators.email.EmailValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
