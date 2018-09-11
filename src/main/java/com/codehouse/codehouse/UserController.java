@@ -1,9 +1,9 @@
 package com.codehouse.codehouse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -11,7 +11,7 @@ public class UserController {
     @Autowired
     public UserDtoRepository some;
     @PostMapping("create")
-    public UserDto create(@RequestBody UserDto userDto){
+    public UserDto create(@RequestBody @Valid UserDto userDto){
         some.save(userDto);
         return userDto;
     }

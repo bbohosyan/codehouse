@@ -9,8 +9,6 @@ import javax.validation.constraints.NotNull;
 public class UserDto {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @NotNull
-    @NotEmpty
     private int id;
 
     @NotNull
@@ -23,7 +21,7 @@ public class UserDto {
 
     @NotNull
     @NotEmpty
-    private String machingPassword;
+    private String confirmPassword;
 
     @NotNull
     @NotEmpty
@@ -31,8 +29,10 @@ public class UserDto {
 
     protected UserDto(){}
 
-    public UserDto(String name){
+    public UserDto(String name, String password, String confirmPassword, String email){
         setName(name);
+        setPassword(password);
+        setEmail(email);
     }
 
     public int getId() {
@@ -49,6 +49,30 @@ public class UserDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
