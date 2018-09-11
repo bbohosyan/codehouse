@@ -23,6 +23,7 @@ public class UserDto {
     @NotEmpty
     private String confirmPassword;
 
+    @ValidEmail
     @NotNull
     @NotEmpty
     private String email;
