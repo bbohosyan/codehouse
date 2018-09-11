@@ -12,7 +12,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/create").permitAll()
+                .antMatchers("/create", "/test").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable();
         http.logout().logoutUrl("/logout").logoutSuccessUrl("/logout");

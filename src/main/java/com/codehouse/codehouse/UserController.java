@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    public UserRepository some;
+    public UserDtoRepository some;
     @PostMapping("create")
     public UserDto create(){
         UserDto user = new UserDto("Gosho");
