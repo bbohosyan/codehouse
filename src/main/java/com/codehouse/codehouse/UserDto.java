@@ -1,13 +1,20 @@
 package com.codehouse.codehouse;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
 public class UserDto {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @NotNull
+    @NotEmpty
     private int id;
+
+    @NotNull
+    @NotEmpty
     private String name;
 
     protected UserDto(){}
