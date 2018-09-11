@@ -1,6 +1,7 @@
 package com.codehouse.codehouse;
 
 import com.codehouse.codehouse.validators.email.ValidEmail;
+import com.codehouse.codehouse.validators.password.PasswordMatches;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -8,6 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
+@PasswordMatches
 public class UserDto {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
