@@ -17,6 +17,18 @@ public class UserDto {
     @NotEmpty
     private String name;
 
+    @NotNull
+    @NotEmpty
+    private String password;
+
+    @NotNull
+    @NotEmpty
+    private String machingPassword;
+
+    @NotNull
+    @NotEmpty
+    private String email;
+
     protected UserDto(){}
 
     public UserDto(String name){
