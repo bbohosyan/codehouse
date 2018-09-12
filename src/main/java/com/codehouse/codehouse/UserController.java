@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -28,9 +29,10 @@ public class UserController {
     public UserRepository userRepository;
 
     @PostMapping("/login")
-    public User login(@RequestBody UserLoginFormDto userLoginFormDto){
+    public User login(@RequestBody UserLoginFormDto userLoginFormDto, HttpSession httpSession){
         User user = userRepository.findByEmail(userLoginFormDto.getEmail());
         if (bCryptPasswordEncoder.matches(userLoginFormDto.getPassword(), user.getPassword())){
+            httpSession.setAttribute("email", user.getEmail());
             return user;
         }
         else {
