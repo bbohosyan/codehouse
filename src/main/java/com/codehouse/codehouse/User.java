@@ -37,6 +37,7 @@ public class User {
     public User(String name, String password, String confirmPassword, String email){
         setName(name);
         setPassword(password);
+        setConfirmPassword(confirmPassword);
         setEmail(email);
     }
 
