@@ -1,6 +1,7 @@
 package com.codehouse.codehouse.validators.password;
 
-import com.codehouse.codehouse.User;
+import com.codehouse.codehouse.models.User;
+import com.codehouse.codehouse.models.UserLoginFormDto;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -13,7 +14,7 @@ public class PasswordMatchesValidator
     }
     @Override
     public boolean isValid(Object obj, ConstraintValidatorContext context){
-        User user = (User) obj;
+        UserLoginFormDto user = (UserLoginFormDto) obj;
         return user.getPassword().equals(user.getConfirmPassword());
     }
 }

@@ -1,6 +1,6 @@
 package com.codehouse.codehouse.services;
 
-import com.codehouse.codehouse.User;
+import com.codehouse.codehouse.models.User;
 
 public interface UserService {
     void save(User user);

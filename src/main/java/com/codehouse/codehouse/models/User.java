@@ -1,4 +1,4 @@
-package com.codehouse.codehouse;
+package com.codehouse.codehouse.models;
 
 import com.codehouse.codehouse.validators.email.ValidEmail;
 import com.codehouse.codehouse.validators.password.PasswordMatches;
@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
-@PasswordMatches
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,10 +22,6 @@ public class User {
     @NotEmpty
     private String password;
 
-    @NotNull
-    @NotEmpty
-    private String confirmPassword;
-
     @ValidEmail
     @NotNull
     @NotEmpty
@@ -34,10 +29,9 @@ public class User {
 
     protected User(){}
 
-    public User(String name, String password, String confirmPassword, String email){
+    public User(String name, String password, String email){
         setName(name);
         setPassword(password);
-        setConfirmPassword(confirmPassword);
         setEmail(email);
     }
 
@@ -63,14 +57,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     public String getEmail() {

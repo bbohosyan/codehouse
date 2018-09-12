@@ -1,5 +1,6 @@
 package com.codehouse.codehouse;
 
+import com.codehouse.codehouse.models.User;
 import com.codehouse.codehouse.services.SecurityService;
 import com.codehouse.codehouse.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class UserController {
             return user;
         }
         else {
-            return new User();
+            return user;
         }
     }
 

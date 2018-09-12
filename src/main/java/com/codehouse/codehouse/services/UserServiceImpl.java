@@ -1,6 +1,6 @@
 package com.codehouse.codehouse.services;
 
-import com.codehouse.codehouse.User;
+import com.codehouse.codehouse.models.User;
 import com.codehouse.codehouse.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
