@@ -19,9 +19,6 @@ public class UserController {
     private SecurityService securityService;
 
     @Autowired
-    private UserValidator userValidator;
-
-    @Autowired
     public UserRepository some;
     @PostMapping("create")
     public User create(@RequestBody @Valid User userDto){
@@ -45,17 +42,16 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
-        userValidator.validate(userForm, bindingResult);
+    public User registration(@RequestBody User user, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return user;
         }
 
-        userService.save(userForm);
+        userService.save(user);
 
-        securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
+        securityService.autologin(user.getEmail(), user.getPassword());
 
-        return "redirect:/welcome";
+        return user;
     }
 }
