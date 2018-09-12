@@ -3,6 +3,7 @@ package com.codehouse.codehouse;
 import com.codehouse.codehouse.services.SecurityService;
 import com.codehouse.codehouse.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,22 +14,37 @@ import java.util.List;
 public class UserController {
 
     @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
     private UserService userService;
 
     @Autowired
     private SecurityService securityService;
 
     @Autowired
-    public UserRepository some;
+    public UserRepository userRepository;
+
+    @PostMapping("/login")
+    public User login(@RequestBody String email, @RequestBody String password){
+        User user = userRepository.findByEmail(email);
+        if (bCryptPasswordEncoder.matches(password, user.getPassword())){
+            return user;
+        }
+        else {
+            return new User();
+        }
+    }
+
     @PostMapping("create")
     public User create(@RequestBody @Valid User userDto){
-        some.save(userDto);
+        userRepository.save(userDto);
         return userDto;
     }
 
     @GetMapping("getAll")
     public List<User> getAll(){
-        return some.findAll();
+        return userRepository.findAll();
     }
 
     @PostMapping("logout")
