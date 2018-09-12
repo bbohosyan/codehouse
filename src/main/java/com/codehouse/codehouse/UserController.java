@@ -1,6 +1,7 @@
 package com.codehouse.codehouse;
 
 import com.codehouse.codehouse.models.User;
+import com.codehouse.codehouse.models.UserLoginFormDto;
 import com.codehouse.codehouse.services.SecurityService;
 import com.codehouse.codehouse.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +28,13 @@ public class UserController {
     public UserRepository userRepository;
 
     @PostMapping("/login")
-    public User login(@RequestBody String email, @RequestBody String password){
-        User user = userRepository.findByEmail(email);
-        if (bCryptPasswordEncoder.matches(password, user.getPassword())){
+    public User login(@RequestBody UserLoginFormDto userLoginFormDto){
+        User user = userRepository.findByEmail(userLoginFormDto.getEmail());
+        if (bCryptPasswordEncoder.matches(userLoginFormDto.getPassword(), user.getPassword())){
             return user;
         }
         else {
-            return user;
+            return null;
         }
     }
 

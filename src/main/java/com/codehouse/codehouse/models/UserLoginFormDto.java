@@ -1,51 +1,16 @@
 package com.codehouse.codehouse.models;
 
-import com.codehouse.codehouse.validators.email.ValidEmail;
-import com.codehouse.codehouse.validators.password.PasswordMatches;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-@PasswordMatches
 public class UserLoginFormDto {
-
-    private String name;
-
-    private String password;
-
-    private String confirmPassword;
 
     private String email;
 
-    public UserLoginFormDto(@NotNull @NotEmpty String name, @NotNull @NotEmpty String password, @NotNull @NotEmpty String confirmPassword, @NotNull @NotEmpty String email) {
-        setName(name);
-        setPassword(password);
-        setConfirmPassword(confirmPassword);
+    private String password;
+
+    protected UserLoginFormDto(){}
+
+    public UserLoginFormDto(String email, String password) {
         setEmail(email);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+        setPassword(password);
     }
 
     public String getEmail() {
@@ -54,5 +19,13 @@ public class UserLoginFormDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
