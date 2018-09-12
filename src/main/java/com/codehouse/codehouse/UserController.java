@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public User registration(@RequestBody User user, BindingResult bindingResult) {
+    public User registration(@RequestBody @Valid User user, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return user;
@@ -50,7 +50,7 @@ public class UserController {
 
         userService.save(user);
 
-        securityService.autologin(user.getEmail(), user.getPassword());
+        //securityService.autologin(user.getEmail(), user.getPassword());
 
         return user;
     }
