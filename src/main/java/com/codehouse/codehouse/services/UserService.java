@@ -1,4 +1,9 @@
 package com.codehouse.codehouse.services;
 
-public class UserService {
+import com.codehouse.codehouse.User;
+
+public interface UserService {
+    void save(User user);
+
+    User findByUsername(String username);
 }

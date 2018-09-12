@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "users")
 @PasswordMatches
-public class UserDto {
+public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
@@ -32,9 +32,9 @@ public class UserDto {
     @NotEmpty
     private String email;
 
-    protected UserDto(){}
+    protected User(){}
 
-    public UserDto(String name, String password, String confirmPassword, String email){
+    public User(String name, String password, String confirmPassword, String email){
         setName(name);
         setPassword(password);
         setEmail(email);

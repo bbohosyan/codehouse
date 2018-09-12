@@ -9,15 +9,15 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    public UserDtoRepository some;
+    public UserRepository some;
     @PostMapping("create")
-    public UserDto create(@RequestBody @Valid UserDto userDto){
+    public User create(@RequestBody @Valid User userDto){
         some.save(userDto);
         return userDto;
     }
 
     @GetMapping("getAll")
-    public List<UserDto> getAll(){
+    public List<User> getAll(){
         return some.findAll();
     }
 
