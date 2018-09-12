@@ -32,7 +32,7 @@ public class UserController {
     public User login(@RequestBody UserLoginFormDto userLoginFormDto, HttpSession httpSession){
         User user = userRepository.findByEmail(userLoginFormDto.getEmail());
         if (bCryptPasswordEncoder.matches(userLoginFormDto.getPassword(), user.getPassword())){
-            httpSession.setAttribute("email", user.getEmail());
+            httpSession.setAttribute("user", user);
             return user;
         }
         else {
@@ -52,8 +52,8 @@ public class UserController {
     }
 
     @PostMapping("logout")
-    public void logout() throws Exception {
-
+    public void logout(HttpSession httpSession) {
+        httpSession.removeAttribute("email");
     }
 
     @GetMapping("/test")
