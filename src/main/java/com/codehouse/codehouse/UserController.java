@@ -28,17 +28,17 @@ public class UserController {
     @Autowired
     public UserRepository userRepository;
 
-    @PostMapping("/login")
-    public User login(@RequestBody UserLoginFormDto userLoginFormDto, HttpSession httpSession){
-        User user = userRepository.findByEmail(userLoginFormDto.getEmail());
-        if (bCryptPasswordEncoder.matches(userLoginFormDto.getPassword(), user.getPassword())){
-            httpSession.setAttribute("user", user);
-            return user;
-        }
-        else {
-            return null;
-        }
-    }
+//    @PostMapping("/login")
+//    public User login(@RequestBody UserLoginFormDto userLoginFormDto, HttpSession httpSession){
+//        User user = userRepository.findByUsername(userLoginFormDto.getUsername());
+//        if (bCryptPasswordEncoder.matches(userLoginFormDto.getPassword(), user.getPassword())){
+//            httpSession.setAttribute("user", user);
+//            return user;
+//        }
+//        else {
+//            return null;
+//        }
+//    }
 
     @PostMapping("create")
     public User create(@RequestBody @Valid User userDto){
@@ -53,7 +53,7 @@ public class UserController {
 
     @PostMapping("logout")
     public void logout(HttpSession httpSession) {
-        httpSession.removeAttribute("email");
+        httpSession.removeAttribute("username");
     }
 
     @GetMapping("/test")
@@ -69,8 +69,6 @@ public class UserController {
         }
 
         userService.save(user);
-
-        //securityService.autologin(user.getEmail(), user.getPassword());
 
         return user;
     }

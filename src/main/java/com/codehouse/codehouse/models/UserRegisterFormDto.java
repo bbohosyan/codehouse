@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @PasswordMatches
 public class UserRegisterFormDto {
 
-    private String name;
+    private String username;
 
     private String password;
 
@@ -17,19 +17,19 @@ public class UserRegisterFormDto {
 
     private String email;
 
-    public UserRegisterFormDto(@NotNull @NotEmpty String name, @NotNull @NotEmpty String password, @NotNull @NotEmpty String confirmPassword, @NotNull @NotEmpty String email) {
-        setName(name);
+    public UserRegisterFormDto(@NotNull @NotEmpty String username, @NotNull @NotEmpty String password, @NotNull @NotEmpty String confirmPassword, @NotNull @NotEmpty String email) {
+        setUsername(username);
         setPassword(password);
         setConfirmPassword(confirmPassword);
         setEmail(email);
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = username;
     }
 
     public String getPassword() {

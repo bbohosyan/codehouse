@@ -2,23 +2,23 @@ package com.codehouse.codehouse.models;
 
 public class UserLoginFormDto {
 
-    private String email;
+    private String username;
 
     private String password;
 
     protected UserLoginFormDto(){}
 
-    public UserLoginFormDto(String email, String password) {
-        setEmail(email);
+    public UserLoginFormDto(String username, String password) {
+        setUsername(username);
         setPassword(password);
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

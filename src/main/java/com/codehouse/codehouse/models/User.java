@@ -16,7 +16,7 @@ public class User {
 
     @NotNull
     @NotEmpty
-    private String name;
+    private String username;
 
     @NotNull
     @NotEmpty
@@ -29,8 +29,8 @@ public class User {
 
     protected User(){}
 
-    public User(String name, String password, String email){
-        setName(name);
+    public User(String username, String password, String email){
+        setUsername(username);
         setPassword(password);
         setEmail(email);
     }
@@ -43,12 +43,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -65,12 +65,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "User[id=%d, name='%s']",
-                id, name);
     }
 }
