@@ -1,8 +1,6 @@
 package com.codehouse.codehouse;
 
 import com.codehouse.codehouse.models.User;
-import com.codehouse.codehouse.models.UserLoginFormDto;
-import com.codehouse.codehouse.services.SecurityService;
 import com.codehouse.codehouse.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,22 +21,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private SecurityService securityService;
-
-    @Autowired
     public UserRepository userRepository;
-
-//    @PostMapping("/login")
-//    public User login(@RequestBody UserLoginFormDto userLoginFormDto, HttpSession httpSession){
-//        User user = userRepository.findByUsername(userLoginFormDto.getUsername());
-//        if (bCryptPasswordEncoder.matches(userLoginFormDto.getPassword(), user.getPassword())){
-//            httpSession.setAttribute("user", user);
-//            return user;
-//        }
-//        else {
-//            return null;
-//        }
-//    }
 
     @PostMapping("create")
     public User create(@RequestBody @Valid User userDto){
